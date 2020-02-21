@@ -136,7 +136,9 @@ Github y repositorios externos pt1
 -resolverlo y hacer el commit + push 
 -comando: git push -f= hacer un push cayendole encima a los cambios en remote
 -ejercicio: pedir que se unan en parejas o en trios:
-	-
+	-se agreguen en github para que el repo tenga acceso
+	-se descarguen repositorio de parejas
+	-se pongan un mensaje y le den push
 
 ------------------------------------------------------------------------------------------------------
 NOTAS DE CURSOS
