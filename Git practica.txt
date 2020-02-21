@@ -2,5 +2,6 @@ primera practica en git
 segunda linea
 tercera linea
 cuarta linea
-quinta linea
-sexta linea
+linea rebase 1
+linea rebase 2
+
