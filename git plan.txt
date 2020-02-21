@@ -1,0 +1,237 @@
+PLAN DE CURSOS
+(tener parqueadero: preguntas que no se tengan respuestas para responderlas mas adelante)
+
+Instalacion de GIT 
+-Git es: herramienta para versionamiento distribuido
+-en propias palabras, para poder almacenar y versionar archivos y compartir ese versionamiento en diferentes maquinas
+-bajar GIT pagina
+-instalarlo con wizard
+-crear folder Practica
+-right click "GIT bash here"
+-comando: git init 
+-explicar la creacion hidden folder .git
+
+Fundamentos git/iniciando repo/primer commit 
+-explicar bajo .git/objects los folders creados
+	-los folders con numeros son el tracking que guarda de archivos(blobs)/commits/branches
+	-los guarda como un mapa usando un key y un valor (tabla que tiene un key y un valor)
+	-la el valor es el contenido del archivo (secuencia de bytes)
+	-calcula el key por el algoritmo SHA1 
+	-20 bytes en hexadecimal
+	-comando: echo "algo" | git hash-object --stdin
+	-comando: git cat-file (SHA1) -t para tipo  (primero 6 numeros)
+	-comando: git cat-file (SHA1) -p para contenido
+	-se guardan tipo (objetos de git):
+		-son inmutables, no pueden ser cambiados
+		-blob: archivo/ secuencia de datos
+		-tree: cambio / directorio en git, esta apuntando al directorio padre
+		-commit: mensaje de commit
+	-comando:-comando: echo "algo" | git hash-object --stdin -w para escribir eso en repositorio y ver que en folder se escribe ese SHA
+-crear un txt y agregar una linea
+-comando: git add "Git practica.txt"
+-explicar: lo agrega al stage (preparalo para un commit)
+-comando para unstage files: git reset
+-comando: git commit -m "primer commit"
+-git commit: un texto con informacion acerca del cambio, explicar data que tiene, quien lo hizo, la fecha (con formato) y un SHA apuntando al cambio, es basicamente un cambio en el repositorio
+-hacer un segundo cambio agregando una linea y darle git commit
+-hacer mensaje de commit y ver si puede salir
+-para salir key ESC despues :w para guardar y luego :x 
+-comando: git log para ver un log de los commits hechos
+-por default se crea branch master 
+-explicar como el segundo commit tiene el parent que es el SHA del primer commit
+-explicar que tiene el hash del tree que apunta al cambio que se hizo: mostrar con comando cat-file -p 
+-espacios en donde trabaja GIT:
+	-explicar working area: directorios y archivos que se crean/modifican/borran
+	-repository en .git folder
+
+Branches y HEAD 
+-branch (es una referencia a un commit como algo que apunta)
+-mostrar con dibujitos como es que se va moviendo el branch
+-ir a carpeta .git/refs/head ahi salen ramas
+-abrir archivo master y mostrar el SHA, abrirlo en notepad++ con cat-file para ver el commit al que apunta
+-master es la default y la que usualmente se considera la version final
+-comando: git branch trabajo = crea segundo branch 
+-ver esta en heads y abrirlo para ver que apunta al key del branch master 
+-hacer un cambio en archivo, preguntar sobre cual branch es que se haria el cambio
+-comando: git branch para ver todos los branches el que tiene la estrella es el que se esta trabajando
+-comando: git branch -m nuevonombre = para renombrar branch
+-explicar HEAD: otro apuntador, hace referencia a la branch actual
+-comando: cat .git/HEAD para ver carpeta adonde apunta HEAD
+-comando: git rev-parse HEAD lo mismo pero para ver el commit adonde apunta adonde apunta
+-comando: git checkout nombreDeBranch hace que HEAD apunte a la branch
+-abrir archivo y ver los cambios de la version segunda con la primera version 
+-en segunda version hacer un cambio y darle commit 
+-mostrar con dibujitos como se esta el nuevo commit, branch y head
+-comando: git log para ver commits
+-comando: git log nombreDeBranch para ver commits de una branch (:q para salir)
+-comando: git checkout (key de un commit) = explicar estado detached HEAD
+	-significa que HEAD no esta apuntando a un branch sino que a un cambio
+-Abrir documento y ver los cambios
+-esto puede funcionar tipo en dev si queres hacer cambios con una nueva tec sin impactar rama 
+-retener cambios  comando: git switch -c noombreDeNuevoBranch
+-volver a la branch en donde estaba HEAD apuntando antes, comando: git switch -
+-ver lista de branches y ver nuevo branch creado
+-perder los cambios: hacer checkout de una branch
+-commits a los cuales no les este apuntando nadie seran borrados por garbage collector(liberar memoria)
+-explicar los posibles escenarios: o preservas los cambios o los perdes
+-hacer checkout de branch anterior para volver y ver el doc previo al cambio
+-revertir un commit, explicar como se podria hacer 
+-comando: git reset --hard HEAD~1 (cambiar HEAD~1 por id de commit para pasarlo a esos cambios)
+-ejercicio: tenes dos branches una master una X haces commit sobre master pero lo querias sobre X queres revertir y pasar esos cambios a X
+
+Merge
+-que es: union entre 2 cambios
+-comando: git merge branchAMerge (hace el merge entre adonde apunta HEAD y el branch mencionado)
+-si te dice que hay conflictos hay que resolverlos
+-abrir nuevamente el documento y explicar que muestra
+-resolver conflictos y hacer git add + commit
+-explicar, se hizo el merge y se resolvieron los conflicto, lo unico que se hizo fue otro commit
+-hacer git log y luego cat file de ese key y ensenar que ese commit tiene dos padres, cada una de las branches
+-explicar situaciones en la vida real en donde pueden haber conflictos y hacer merge y como solucionarlos
+-regresar a branch y hacer merge del otro lado, ver que se hace un fast forward que es solo mover el pointer al merge
+-un branch puede tener N cantidad de parents
+-mostrar visualmente esto
+
+Rebase
+-explicar: otra forma de unir cambios
+-cambia la "base" de una branch por otro commit 
+-ejercicio: de branch master crear otra branch y hacer dos commits 
+	-volver a branch master y hacer dos commits 
+	-explicar graficamente que es lo que se tiene y que se hara con el rebase
+	-comando: git rebase master (desde segunda branch)
+	-resolver conflictos darles add y luego comando: git rebase --continue
+	-explicar: se "movio" la base de una branch para que tuviera la historia de la otra branch
+-hacer checkout de la otra branch y luego merge para mover el pointer (fast forward)
+
+Tags
+-explicacion: un tag es otro tipo de referencia que no se puede mover 
+-comando: git tag nombreDeTag (lighweight tags: solo es el nombre)
+-podes hacer un checkout de un Tag como una referencia pero vas a estar en estado de detached HEAD
+-annotated tags: es un tag con un mensaje 
+	-comando: git tag -a primerTagAnotado (entras a VIM para poner el mensaje)
+-comando: git tag -l
+
+Github y repositorios externos
+-explicacion: el verdadero uso de repositorios es usarlos en la red para que varios contribuyan
+-pedir que creen una cuenta en github
+-pedir que le den en new y creen un nuevo repositorio gitCurso
+-comando: git remote add origin https://github.com/rcaste91/gitCurso.git
+-comando: git push -u origin master
+-explicacion: como "descargar" un repo, podes hacer clone a tu compu o fork a tu repositorio en github
+-comando: git clone urlDeRepo (correr en otro folder aparte)
+-explicacion: en carpeta en donde se clono, esta el folder .git 
+	-aqui esta la carpeta remote con origin: el nombre por default que se le da al remote por default que toma en cuenta
+	-abrir archivo config en .git para ver este detalle, explicar que se pueden agregar varios remote
+-comando: git branch --all muestra todas las branches tanto en repo local como remote
+-ejercicio hacer un cambio en documento local, hacerle un commit
+-comando: git push = empuja los commits hechos a remote
+------------------------------------------------------------------------------------------------------
+NOTAS DE CURSOS
+git isnt about learning the commands but to learn the model
+-distributed revision control system
+	-content tracker
+	-persitent map (keys, values) stored in your pc
+- at its core its keys and values
+-uses SHA1 to calculate keys out of values
+-every object in git has it own SHA1 
+- git init (start empty git)
+- hidden folder .git 
+	-object db where all files are stored 
+	-inside number file there is sha number file 
+	-blob of data = generic piece of content 
+- git cat-file (sha number) -t to show type
+- git cat-file (sha number) -p to show content
+-files to be committed need to be placed in staging area
+-comando: git status 
+- comando: git log
+-comando: clear o cls: limpiar pantalla
+-git add (file name)
+-git commit -m "first commit"
+-git status: view uncommitted changes
+-git log
+-git commit is a text  that contains metadata about author
+and the SHA of a tree (directory) pointing the root 
+-if they have the same contents then SHA will be the same 
+-when files changes tree commit points to new blob with a new SHA
+-it doesnt store things more than once
+-tags: annotated tag is simple label attached to object
+	- git tag -a mytag -m "ddd" annotated tag 
+	- git tag : view tags
+
+Branches
+git creates brnaches with first commit
+- git branch (master is default branch)
+-under ref/heads is master branch 
+-contains a SHA of current commit
+-branch is a reference to a commit
+-you can rename branch or delete by changing file under ref/heads
+-git branch branchname - creates new branch 
+-branch with star is current branch
+-in .git there is head folder which references a branch (directory under ref/heads)
+-HEAD =reference to a branch 
+-when a new git commit is made master points to new commit but HEAD still points a master 
+-git checkout branchname : changes HEAD to branchname 
+
+Merging
+-git merge branchToMerge (merges branchToMerge to HEAD branch)
+-git commit =when you stage a conflicted file you tell git confict has been resolved
+- git merge has 2 parents
+-after merge, pointer master moves to new commit that has the merge 
+- if we want to go back and merge second branch to master, it will move pointer to commit done before with the resolved conflict 
+-AKA fast forward
+-you can directly check out a commit instead of a branch
+-git checkout SHA number: HEAD now points to commit
+-this is called detached HEAD as it doesn't point to a commit 
+-if you commit a change from this state HEAD will point to new commit
+-garbage collector "cllects" branches that cant be reached
+-in order to save commits without branch, point HEAD to SHA of commit, then create new branch 
+-detached HEAD is good for making experiments that youre not sure you want to keep
+
+Rebase
+- git rebase master
+- finds the commit in common then move branches departing from that commit to the top of last master commit
+- new branch contains commit from branch and from master 
+-how rebase actually works: it creates copies of the commits from branch about to be "moved" into new branch then moves the branch pointer to the copied commits
+-git garbage collects unreachable objects
+-merge preserves history of commits in separate branches
+-project using rebasing refactos history looks more streamlined
+-when in doubt, just merge
+
+Tags
+-lightweight tags: ex: git tag dinner
+-tag is a reference to an object
+-annotated tags creates a new SHA that references another object
+-a tag is like a branch that doesnt move  
+
+Distributed Version Control
+-git clone "url" brings project from github/online repo
+-also downloads .git directory 
+- git clone only clones master branch 
+-in git/objects SHA are copied, its history 
+-in git/config, each other copy of a repo is a remote. 
+-Origin is the default repo clone usually points to the one in github 
+-git branch --all : you see all branches on the remote 
+-git show-ref master: shows all branches with master in their name
+-remote branch is a reference to a commit 
+-git push: sends updated/changed objects to remote 
+-git push -f: force push, caerle encima a cambios en un remote
+-scenario: local master branch has change, origin master branch has another change...
+-git fetch: command brings change from origin and moves origin/master pointer to new branch creating a conflict
+-do a merge to fix the conflicts
+-push merge to remote, it will push both the merge and previous commit on local that had conflicts, master now points to merge
+-you fetch -> merge -> push 
+-git pull: command does a fetch +merge
+-never rebase shared commits
+-fork: remote clone ex clone from a github account to another github account 
+-from local you can set up 2 remotes: your fork and original repo called upstream
+- you can push changes to fork
+-you can pull changes from upstream
+-pull request: ask owners of original branch to pull your changes 
+
+working areas
+-3 working areas in git	
+	-working area: current files and folders
+	-repository
+	-index: stagingn area where files that are staged are added, in reality it contains all files and folders
+	-command: git diff = compares working area with index 
+	-command: git diff --cached = compares index with repository
