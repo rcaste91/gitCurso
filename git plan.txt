@@ -12,13 +12,13 @@ Instalacion de GIT
 -explicar la creacion hidden folder .git
 
 Fundamentos git/iniciando repo/primer commit 
--explicar bajo .git/objects los folders creados
+-explicar bajo .git/objects los folders creados como guarda Git las cosas
 	-los folders con numeros son el tracking que guarda de archivos(blobs)/commits/branches
 	-los guarda como un mapa usando un key y un valor (tabla que tiene un key y un valor)
 	-la el valor es el contenido del archivo (secuencia de bytes)
 	-calcula el key por el algoritmo SHA1 
 	-20 bytes en hexadecimal
-	-comando: echo "algo" | git hash-object --stdin
+	-comando: echo "algo" | git hash-object --stdin -w para escribir eso en repositorio y ver que en folder se escribe ese SHA
 	-comando: git cat-file (SHA1) -t para tipo  (primero 6 numeros)
 	-comando: git cat-file (SHA1) -p para contenido
 	-se guardan tipo (objetos de git):
@@ -26,7 +26,6 @@ Fundamentos git/iniciando repo/primer commit
 		-blob: archivo/ secuencia de datos
 		-tree: cambio / directorio en git, esta apuntando al directorio padre
 		-commit: mensaje de commit
-	-comando:-comando: echo "algo" | git hash-object --stdin -w para escribir eso en repositorio y ver que en folder se escribe ese SHA
 -crear un txt y agregar una linea
 -comando: git add "Git practica.txt"
 -explicar: lo agrega al stage (preparalo para un commit)
