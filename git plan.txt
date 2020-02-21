@@ -77,6 +77,7 @@ Branches y HEAD
 -hacer checkout de branch anterior para volver y ver el doc previo al cambio
 -revertir un commit, explicar como se podria hacer 
 -comando: git reset --hard HEAD~1 (cambiar HEAD~1 por id de commit para pasarlo a esos cambios)
+-reset normal solo cambio lo que esta el index, por si no queres commit lo actual pero quere commit otra cosa
 -ejercicio: tenes dos branches una master una X haces commit sobre master pero lo querias sobre X queres revertir y pasar esos cambios a X
 
 Merge
@@ -111,7 +112,7 @@ Tags
 	-comando: git tag -a primerTagAnotado (entras a VIM para poner el mensaje)
 -comando: git tag -l
 
-Github y repositorios externos
+Github y repositorios externos pt1 
 -explicacion: el verdadero uso de repositorios es usarlos en la red para que varios contribuyan
 -pedir que creen una cuenta en github
 -pedir que le den en new y creen un nuevo repositorio gitCurso
@@ -124,7 +125,19 @@ Github y repositorios externos
 	-abrir archivo config en .git para ver este detalle, explicar que se pueden agregar varios remote
 -comando: git branch --all muestra todas las branches tanto en repo local como remote
 -ejercicio hacer un cambio en documento local, hacerle un commit
--comando: git push = empuja los commits hechos a remote
+-comando: git push = empuja los commits hechos a remote (podes especificarle que remote)
+-comando: git fetch = te trae los cambios del repo remoto pero no los aplica
+-comando: git merge remotes/origin/master = te une los cambios que descargaste a tu branch actual
+-comando: git pull = hace getch + merge
+-el orden para pasar un cambio de forma segura: pull -> cambio local -> commit -> push 
+-pedirle a alguien que se conecte a mi repo y le haga un cambio repetir 2x
+-pedir a alguien que haga un cambio y que yo no le de fetch para crear el conflicto al darle push
+-hacer un pull y ver en el documento el conflicto
+-resolverlo y hacer el commit + push 
+-comando: git push -f= hacer un push cayendole encima a los cambios en remote
+-ejercicio: pedir que se unan en parejas o en trios:
+	-
+
 ------------------------------------------------------------------------------------------------------
 NOTAS DE CURSOS
 git isnt about learning the commands but to learn the model
