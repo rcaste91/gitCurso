@@ -2,4 +2,3 @@ primera practica en git
 segunda linea
 tercera linea
 cuarta linea
-linea equivocada
