@@ -10,3 +10,4 @@ primera linea para el remoto
 linea remoto doc clon
 fetch mas merge
 segundo
+le caimos encima a la linea
