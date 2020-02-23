@@ -56,7 +56,7 @@ Branches y HEAD
 -comando: git branch -m nuevonombre = para renombrar branch
 -explicar HEAD: otro apuntador, hace referencia a la branch actual
 -comando: cat .git/HEAD para ver carpeta adonde apunta HEAD
--comando: git rev-parse HEAD lo mismo pero para ver el commit adonde apunta adonde apunta
+-comando: git rev-parse HEAD lo mismo pero para ver el commit adonde apunta
 -comando: git checkout nombreDeBranch hace que HEAD apunte a la branch
 -abrir archivo y ver los cambios de la version segunda con la primera version 
 -en segunda version hacer un cambio y darle commit 
