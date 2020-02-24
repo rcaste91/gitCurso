@@ -40,10 +40,9 @@ Fundamentos git/iniciando repo/primer commit
 -por default se crea branch master 
 -explicar como el segundo commit tiene el parent que es el SHA del primer commit
 -explicar que tiene el hash del tree que apunta al cambio que se hizo: mostrar con comando cat-file -p 
--espacios en donde trabaja GIT:
-	-explicar working area: directorios y archivos que se crean/modifican/borran
-	-repository en .git folder
 -comando: git show SHA = ver el comit detallado por una llave
+-opcional: comando: git commit --amend = arreglar ultimo commit tanto mensaje como archivos, se tienen que stage los archivos antes
+-revirtiendo commits: git revert SHA = hace lo opuesto al commit
 
 Areas de trabajo
 -3 Areas de trabajo principales	
