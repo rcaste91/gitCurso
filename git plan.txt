@@ -35,14 +35,12 @@ Fundamentos git/iniciando repo/primer commit
 -git commit: un texto con informacion acerca del cambio, explicar data que tiene, quien lo hizo, la fecha (con formato) y un SHA apuntando al cambio, es basicamente un cambio en el repositorio
 -hacer un segundo cambio agregando una linea y darle git commit
 -hacer mensaje de commit y ver si puede salir
--para salir key ESC despues :w para guardar y luego :x 
+-para salir key ESC despues :w para guardar y luego :x o :wq
 -comando: git log para ver un log de los commits hechos
 -por default se crea branch master 
 -explicar como el segundo commit tiene el parent que es el SHA del primer commit
 -explicar que tiene el hash del tree que apunta al cambio que se hizo: mostrar con comando cat-file -p 
 -comando: git show SHA = ver el comit detallado por una llave
--opcional: comando: git commit --amend = arreglar ultimo commit tanto mensaje como archivos, se tienen que stage los archivos antes
--revirtiendo commits: git revert SHA = hace lo opuesto al commit
 
 Areas de trabajo
 -3 Areas de trabajo principales	
