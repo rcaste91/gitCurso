@@ -42,6 +42,16 @@ Fundamentos git/iniciando repo/primer commit
 -espacios en donde trabaja GIT:
 	-explicar working area: directorios y archivos que se crean/modifican/borran
 	-repository en .git folder
+-comando: git show SHA = ver el comit detallado por una llave
+
+Areas de trabajo
+-3 Areas de trabajo principales	
+	-area de trabajo: Archivos y directorios actuales en pc
+	-repositorio: en donde se guardan los cambios 
+	-index: area de preparacion de cambios, conocida como staging area 
+	-command: git diff = compares working area with index 
+	-command: git diff --cached = compares index with repository
+-Hay una 4ta area: stash que solo la afecta el comando git stash pero no es usada muy comunmente
 
 Branches y HEAD 
 -branch (es una referencia a un commit como algo que apunta)
@@ -75,9 +85,13 @@ Branches y HEAD
 -explicar los posibles escenarios: o preservas los cambios o los perdes
 -hacer checkout de branch anterior para volver y ver el doc previo al cambio
 -revertir un commit, explicar como se podria hacer 
+-comando: git reset --hard HEAD = regresar al estado del ultimo cambio que apunta HEAD
 -comando: git reset --hard HEAD~1 (cambiar HEAD~1 por id de commit para pasarlo a esos cambios)
 -reset normal solo cambio lo que esta el index, por si no queres commit lo actual pero quere commit otra cosa
 -ejercicio: tenes dos branches una master una X haces commit sobre master pero lo querias sobre X queres revertir y pasar esos cambios a X
+-Comando: git checkout HEAD nombreDeArchivo, regresa a index y working area el archivo adonde esta apuntando HEAD
+-Comando: git log --graph --decorate --oneline = ver de forma grafica historial
+-Comando: git diff branch1 branch2 = compara ambos branches para ver diferencias
 
 Merge
 -que es: union entre 2 cambios
@@ -127,7 +141,7 @@ Github y repositorios externos pt1
 -comando: git push = empuja los commits hechos a remote (podes especificarle que remote)
 -comando: git fetch = te trae los cambios del repo remoto pero no los aplica
 -comando: git merge remotes/origin/master = te une los cambios que descargaste a tu branch actual
--comando: git pull = hace getch + merge
+-comando: git pull = hace fetch + merge
 -el orden para pasar un cambio de forma segura: pull -> cambio local -> commit -> push 
 -pedirle a alguien que se conecte a mi repo y le haga un cambio repetir 2x
 -pedir a alguien que haga un cambio y que yo no le de fetch para crear el conflicto al darle push
