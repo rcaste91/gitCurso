@@ -18,3 +18,4 @@ cuarto cambio rebase
 cambio para diff
 prueba gui
 esto lo deberia quitar
+esto lo deberia dejar
