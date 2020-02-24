@@ -27,6 +27,7 @@ Fundamentos git/iniciando repo/primer commit
 		-tree: cambio / directorio en git, esta apuntando al directorio padre
 		-commit: mensaje de commit
 -crear un txt y agregar una linea
+-comando:git status = ver estado
 -comando: git add "Git practica.txt"
 -explicar: lo agrega al stage (preparalo para un commit)
 -comando para unstage files: git reset
