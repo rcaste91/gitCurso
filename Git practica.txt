@@ -19,4 +19,4 @@ cambio para diff
 prueba gui
 esto lo deberia quitar
 esto lo deberia dejar
-nuevo cambio agregado
+nuevo texto agregado
