@@ -1,5 +1,7 @@
 PLAN DE CURSOS
 (tener parqueadero: preguntas que no se tengan respuestas para responderlas mas adelante)
+https://learngitbranching.js.org/?NODEMO para verlo de forma visual
+
 
 Instalacion de GIT 
 -Git es: herramienta para versionamiento distribuido
@@ -138,6 +140,8 @@ Github y repositorios externos pt1
 -ejercicio hacer un cambio en documento local, hacerle un commit
 -comando: git push = empuja los commits hechos a remote (podes especificarle que remote)
 -comando: git fetch = te trae los cambios del repo remoto pero no los aplica
+-comando: git fetch --all: te trae cambios de todas las ramas (por si creas nuevas)
+	-podes hacer checkout normal a la nueva branch que te trae y automaticamente estara ligada a la nueva que se crea
 -comando: git merge remotes/origin/master = te une los cambios que descargaste a tu branch actual
 -comando: git pull = hace fetch + merge
 -el orden para pasar un cambio de forma segura: pull -> cambio local -> commit -> push 
@@ -261,3 +265,71 @@ working areas
 	-index: stagingn area where files that are staged are added, in reality it contains all files and folders
 	-command: git diff = compares working area with index 
 	-command: git diff --cached = compares index with repository
+
+Distributed workflow
+how to use git in practice
+peer to peer model
+people in team have local repos that are also shared, each dev can pull changes from other peers
+centralized repo model 
+one main repo that 
+everyone pushes / pulls from centralized repo
+pull request model 
+only one person (mantainer) in team has the ability to push to centralized repo, everyone also can only pull 
+mantainer see's other people's repos and pull (through pull request) them so he can push to centralized repos 
+dictator & lieutanents model
+you have a main project mantainer and sub project mantainers and other contributors
+sub project containers (lieutanents) can accept pull requests to their repos and ask for a pull request to main project mantainer 
+branching models
+stable branch = tip pf branch contains functional code
+unstable branch = tip of branch might be working or broken
+integration branch = master branch 
+Release branch = one with code readyto be released 
+Feature branch = branches that come out of integration and use it to complete a feature then merge back to integration branch 
+hotfix branch = a branch in which you can share a commit from one branch that has been separated from another
+otras reglas
+que dev puede hacer que - push, tags 
+rebase or merge
+Gitflow = typical pattern used 
+dont design a workflow, instead grow one = start small and then add new rules / remove as new variables come up 
+----------------------------------------------------------------------------------
+
+GIT WWHW
+why
+Git es una herramienta muy comun para el desarrollo de aplicaciones
+En la actualidad no se puede trabajar sin hacer uso de repositorios 
+A este punto es una casi como una carta de presentacion y lo usan la gran mayoria de desarrolladores/gente que trabaja con tecnologia
+Es importante poder conocerlo porque ya es un estandar a este punto 
+al verlo ser usado es facil confundirse entre tanto comando y terminologia 
+si no sabes lo que estas haciendo se puede tener efectos graves
+mi primera experiencia trabajando tuve que interactuar con git y lo hacia con miedo porque no entendia que pasaba 
+por ser muy extenso no tenia un buen punto de partido
+Soy Ronald Castellon - desarrolladoor y consultor +7 años
+
+what
+En este curso vamos a aprender de Git de una forma rapida pero detallada
+He visto que aprender solo comandos no es la forma apropiada
+Con experiencia aprendi y hoy cree este curso Git Express - Fundamentos 
+Es importante saber que es lo que esta pasando "detras de las escenas"
+es importante conocer la terminologia 
+vamos a empezar:
+	-conociendo acerca de git y como funciona
+	-iniciar un repositorio y verlo en accion, que es lo que pasa
+	-trabajar con un repositorio local
+	-almacenar cambios y entender que es lo que pasa
+	-tener diferentes versiones de un archivo y ver como cambiar entre ellos
+	-unir cambios que crean conflictos
+	-"navegar por el tiempo" y ver los cambios hechos anteriormente y experimentar
+	-trabajar con gente alrededor del mundo con repositorios remotos
+Las herramientas que usaremos son:
+	-git (herramienta a descargar)
+	-editor de texto: (yo uso notepad++)
+
+how
+	-todo lo de arriba
+	
+what if
+	-ya pueden usar git + github
+	-estrategias de git -> gitflow
+	-contribuir a proyectos 
+	-aprender de otros proyectos 
+	-integrar git con otras tecnologias (DevOps) ofrecer cursos
