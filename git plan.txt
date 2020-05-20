@@ -297,13 +297,17 @@ GIT WWHW
 why
 Git es una herramienta muy comun para el desarrollo de aplicaciones
 En la actualidad no se puede trabajar sin hacer uso de repositorios 
-A este punto es una casi como una carta de presentacion y lo usan la gran mayoria de desarrolladores/gente que trabaja con tecnologia
+empresas lo usan para que sus equipos creen soluciones
+independientes lo usan para contribuir con otros proyectos 
 Es importante poder conocerlo porque ya es un estandar a este punto 
 al verlo ser usado es facil confundirse entre tanto comando y terminologia 
 si no sabes lo que estas haciendo se puede tener efectos graves
 mi primera experiencia trabajando tuve que interactuar con git y lo hacia con miedo porque no entendia que pasaba 
 por ser muy extenso no tenia un buen punto de partido
 Soy Ronald Castellon - desarrolladoor y consultor +7 años
+
+Hola a todos mi nombre es Ronald Castellon y bienvenidos al curso de Git - fundamentos. En la actualidad los repositorios son muy comunes para el desarrllo de aplicaiones y Git se ha convertido en la herramienta principal para el manejo de versiones en repositorios. Independientemente de adonde se este trabajando es muy probable que se este usando Git. En las empresas, un equipo de IT  utiliza Git para crear soluciones tecnologicas . los desarrolladores independientes, usan Git para contribuir con proyectos de otros desarrolladores lo cual ha acelerado el mundo open source. 
+Sin embargo, entre tanta terminologia y comando, Git no es lo mas amigable del mundo para alguien nuevo. Es muy facil llegar a confundirse y si se empieza a usarlo sin saber lo que se esta haciendo, se corre el riesgo de afectar no solo tu trabajo, pero tambien el de tu equipo. Yo he pasado por experiencias similares en mi prmier trabajo que tuve que interactuar con Git. Cada vez que tenia que utilizarlo lo hacia con miedo porque no estaba muy seguro de lo que estaba haciendo, pero despues de mas de 7 años de experiencia desarrollando y contribuyendo, quiero compartirles los conocimientos basicos para que puedan empezar a hacer uso de esta herramienta. 
 
 what
 En este curso vamos a aprender de Git de una forma rapida pero detallada
